@@ -10,8 +10,9 @@ import { AnimatedCounter } from '@/components/animated-counter'
 import { getRentalConsoles, toggleConsoleAvailability, deleteRentalConsole } from '@/app/actions/rentals'
 import { ConsoleFormModal, type ConsoleFormValues } from '@/components/admin/console-form-modal'
 import { cn, formatNumber } from '@/lib/utils'
+import { AdminHub } from '@/components/admin/admin-hub'
 
-const sections = ['Overview', 'Rentals', 'Tournaments', 'Players', 'Listings']
+const sections = ['Overview', 'Rentals', 'Tournaments', 'Players', 'Listings', 'Hub Admin']
 
 type RentalConsole = {
   id: string
@@ -365,6 +366,8 @@ export default function AdminPage() {
             )}
 
             {/* ──────────────────────────── LISTINGS ──────────────────────────── */}
+            {activeSection === 'Hub Admin' && <AdminHub />}
+
             {activeSection === 'Listings' && (
               <div className="space-y-3">
                 <p className="text-xs text-muted-foreground mb-2">Pending marketplace approval</p>
